@@ -20,6 +20,7 @@
   <%= @restaurant.category %>
 </p>
 
+<h5>All reviews</h5>
 <div class="list-group">
   <% @restaurant.reviews.each do |review| %>
     <div href="#" class="list-group-item list-group-item-action flex-column align-items-start">
@@ -32,6 +33,11 @@
   <% end %>
 </div>
 
+<br>
+<h5>Add a review</h5>
+<%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+
+<%= link_to 'Check reviews', restaurant_reviews_path(@restaurant) %>
+<br>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
